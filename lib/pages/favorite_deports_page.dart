@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:statefullg10/constants/constants.dart';
+import 'package:statefullg10/widgets/item_deport_widget.dart';
 
 class FavoriteDeportsPage extends StatefulWidget {
   @override
@@ -48,14 +49,11 @@ class _FavoriteDeportsPageState extends State<FavoriteDeportsPage> {
                 runSpacing: 8, //ESPACIADO VERTICAL ENTRE FILAS
                 alignment: WrapAlignment.spaceAround,
                 children: [
-                  buildDeporteContainer("Golf"),
-                  buildDeporteContainer("Fútbol"),
-                  buildDeporteContainer("Golf"),
-                  buildDeporteContainer("Fútbol"),
-                  buildDeporteContainer("Golf"),
-                  buildDeporteContainer("Fútbol"),
-                  buildDeporteContainer("Golf"),
-                  buildDeporteContainer("Fútbol"),
+                  ItemDeportWidget(),
+                  ItemDeportWidget(),
+                  ItemDeportWidget(),
+                  ItemDeportWidget(),
+                  ItemDeportWidget(),
                 ],
               ),
             )
