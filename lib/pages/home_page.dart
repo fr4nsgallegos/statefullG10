@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:statefullg10/constants/constants.dart';
 
 class HomePage extends StatelessWidget {
-  Widget buildMenuCard(BuildContext context) {
+  Widget buildMenuCard(BuildContext context, String titulo, String dias,
+      double precio, String imagenMenu) {
     return Container(
+      margin: EdgeInsets.only(bottom: 8),
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -18,8 +20,7 @@ class HomePage extends StatelessWidget {
               color: Colors.red,
               borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
-                image: NetworkImage(
-                    "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                image: NetworkImage(imagenMenu),
                 fit: BoxFit.cover,
               ),
             ),
@@ -35,11 +36,11 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Menú 1",
+                titulo,
                 style: TextStyle(fontSize: 20),
               ),
-              Text("Lun-mar-mier", style: subTituloStyle),
-              Text("S/ 5", style: tituloStyle)
+              Text(dias, style: subTituloStyle),
+              Text("S/ $precio", style: tituloStyle),
             ],
           ),
         ],
@@ -74,8 +75,12 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 16,
             ),
-            buildMenuCard(context),
-            buildMenuCard(context),
+            buildMenuCard(context, "Menu 1", "Lun-Mar", 5,
+                "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+            buildMenuCard(context, "Menu 2", "Lun-Mmier", 7,
+                "https://images.pexels.com/photos/10267922/pexels-photo-10267922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+            buildMenuCard(context, "Menu 3", "Sab-Dom", 10,
+                "https://images.pexels.com/photos/5840086/pexels-photo-5840086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
           ],
         ),
       ),
