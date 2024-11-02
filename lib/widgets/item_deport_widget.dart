@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:statefullg10/models/deport_model.dart';
 
 class ItemDeportWidget extends StatelessWidget {
+  DeportModel deporte;
+  ItemDeportWidget({
+    required this.deporte,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,7 +16,7 @@ class ItemDeportWidget extends StatelessWidget {
         border: Border.all(color: Colors.orange, width: 2),
         // color: Colors.orange,
       ),
-      child: Text("Baloncesto"),
+      child: Text(deporte.name),
     );
   }
 }

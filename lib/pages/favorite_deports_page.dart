@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:statefullg10/constants/constants.dart';
+import 'package:statefullg10/models/deport_model.dart';
 import 'package:statefullg10/widgets/item_deport_widget.dart';
 
 class FavoriteDeportsPage extends StatefulWidget {
@@ -46,14 +47,48 @@ class _FavoriteDeportsPageState extends State<FavoriteDeportsPage> {
             Center(
               child: Wrap(
                 spacing: 8, //ESPACIADO HORIZONTAL ENTRE ELEMENTOS
-                runSpacing: 8, //ESPACIADO VERTICAL ENTRE FILAS
+                runSpacing: 16, //ESPACIADO VERTICAL ENTRE FILAS
                 alignment: WrapAlignment.spaceAround,
                 children: [
-                  ItemDeportWidget(),
-                  ItemDeportWidget(),
-                  ItemDeportWidget(),
-                  ItemDeportWidget(),
-                  ItemDeportWidget(),
+                  for (int i = 0; i < deportModelList.length; i++)
+                    ItemDeportWidget(
+                      deporte: deportModelList[i],
+                    )
+                ],
+              ),
+            ),
+            Divider(
+              color: Colors.black,
+              thickness: 2,
+              height: 48,
+            ),
+            Text(
+              "Mis deportes favoritos son:",
+              style: tituloStyle,
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Container(
+              padding: EdgeInsets.all(16),
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 2.5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                border: Border.all(color: Colors.black, width: 2),
+              ),
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                alignment: WrapAlignment.center,
+                children: [
+                  buildDeporteContainer("Volery"),
+                  buildDeporteContainer("Volery"),
+                  buildDeporteContainer("Volery"),
+                  buildDeporteContainer("Volery"),
+                  buildDeporteContainer("Volery"),
+                  buildDeporteContainer("Volery"),
+                  buildDeporteContainer("Volery"),
                 ],
               ),
             )
