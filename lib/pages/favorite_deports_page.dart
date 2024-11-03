@@ -21,6 +21,8 @@ class _FavoriteDeportsPageState extends State<FavoriteDeportsPage> {
     );
   }
 
+  List<DeportModel> favoriteDeportList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
