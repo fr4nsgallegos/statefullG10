@@ -65,6 +65,7 @@ class _FavoriteDeportsPageState extends State<FavoriteDeportsPage> {
                         }
                         setState(() {});
                       },
+                      isOnFavoritListContainer: false,
                     )
                 ],
               ),
@@ -97,7 +98,12 @@ class _FavoriteDeportsPageState extends State<FavoriteDeportsPage> {
                   for (int j = 0; j < favoriteDeportList.length; j++)
                     ItemDeportWidget(
                       deporte: favoriteDeportList[j],
-                      onTap: () {},
+                      onTap: () {
+                        favoriteDeportList[j].isFavorite = false;
+                        favoriteDeportList.remove(favoriteDeportList[j]);
+                        setState(() {});
+                      },
+                      isOnFavoritListContainer: true,
                     )
                 ],
               ),

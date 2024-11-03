@@ -4,9 +4,11 @@ import 'package:statefullg10/models/deport_model.dart';
 class ItemDeportWidget extends StatefulWidget {
   DeportModel deporte;
   VoidCallback onTap;
+  bool isOnFavoritListContainer;
   ItemDeportWidget({
     required this.deporte,
     required this.onTap,
+    required this.isOnFavoritListContainer,
   });
 
   @override
@@ -23,12 +25,20 @@ class _ItemDeportWidgetState extends State<ItemDeportWidget> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Colors.orange, width: 2),
-          color: widget.deporte.isFavorite ? Colors.orange : Colors.white,
+          color: widget.isOnFavoritListContainer
+              ? Colors.white
+              : widget.deporte.isFavorite
+                  ? Colors.orange
+                  : Colors.white,
         ),
         child: Text(
           widget.deporte.name,
           style: TextStyle(
-            color: widget.deporte.isFavorite ? Colors.white : Colors.black,
+            color: widget.isOnFavoritListContainer
+                ? Colors.black
+                : widget.deporte.isFavorite
+                    ? Colors.white
+                    : Colors.black,
           ),
         ),
       ),
