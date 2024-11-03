@@ -55,6 +55,11 @@ class _FavoriteDeportsPageState extends State<FavoriteDeportsPage> {
                   for (int i = 0; i < deportModelList.length; i++)
                     ItemDeportWidget(
                       deporte: deportModelList[i],
+                      onTap: () {
+                        deportModelList[i].isFavorite = true;
+                        favoriteDeportList.add(deportModelList[i]);
+                        setState(() {});
+                      },
                     )
                 ],
               ),
@@ -84,13 +89,11 @@ class _FavoriteDeportsPageState extends State<FavoriteDeportsPage> {
                 runSpacing: 8,
                 alignment: WrapAlignment.center,
                 children: [
-                  buildDeporteContainer("Volery"),
-                  buildDeporteContainer("Volery"),
-                  buildDeporteContainer("Volery"),
-                  buildDeporteContainer("Volery"),
-                  buildDeporteContainer("Volery"),
-                  buildDeporteContainer("Volery"),
-                  buildDeporteContainer("Volery"),
+                  for (int j = 0; j < favoriteDeportList.length; j++)
+                    ItemDeportWidget(
+                      deporte: favoriteDeportList[j],
+                      onTap: () {},
+                    )
                 ],
               ),
             ),

@@ -3,8 +3,10 @@ import 'package:statefullg10/models/deport_model.dart';
 
 class ItemDeportWidget extends StatefulWidget {
   DeportModel deporte;
+  VoidCallback onTap;
   ItemDeportWidget({
     required this.deporte,
+    required this.onTap,
   });
 
   @override
@@ -15,10 +17,7 @@ class _ItemDeportWidgetState extends State<ItemDeportWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        widget.deporte.isFavorite = !widget.deporte.isFavorite;
-        setState(() {});
-      },
+      onTap: widget.onTap,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         decoration: BoxDecoration(
