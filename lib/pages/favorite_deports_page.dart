@@ -91,7 +91,7 @@ class _FavoriteDeportsPageState extends State<FavoriteDeportsPage> {
                   buildDeporteContainer("Volery"),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
